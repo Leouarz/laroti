@@ -1,0 +1,8 @@
+<databases>
+	<database name="leveau">
+		<host>127.0.0.1</host>
+		<user>root</user>
+		<pass></pass>
+		<name>laroti</name>
+	</database>
+</databases>
