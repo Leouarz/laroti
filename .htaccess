@@ -1,0 +1,5 @@
+# Autoload conf.php file
+php_value auto_prepend_file "/conf/conf.php"
+
+# Autoload heder.php file
+php_value auto_prepend_file "/header.php"

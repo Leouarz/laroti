@@ -1,0 +1,53 @@
+/* CSS TOP NAV */
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 4px;
+    overflow: hidden;
+    background-color: #3e4aa8;
+}
+
+ul.topnav li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+ul.topnav li.navtext {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+ul.topnav li.navtext a {
+    color: #c6ccff;
+}
+
+ul.topnav li a.topnav-btn{
+    display: inline-block;
+    color: #c6ccff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a.topnav-btn:hover {
+    color: white;
+}
+
+ul.topnav li a.active {
+    font-weight: bold;
+}
+
+ul.topnav li.right {
+    float: right;
+}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right, ul.topnav li {
+        float: none;
+    }
+}
