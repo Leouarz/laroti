@@ -7,6 +7,11 @@
 	<body>
 		<!-- NAV BAR -->
 		<ul class="topnav">
+			<!-- SITE TITLE -->
+			<li class="navtitle">
+				LA ROTI
+			</li>
+
 			<!-- NAV LINKS -->
 			<li>
 				<a class="topnav-btn active" href="index.php">Accueil</a>
@@ -17,6 +22,7 @@
 			<!-- CONNECTION INDICATOR -->
 			<li class="right navtext">
 				Vous n'êtes pas connectés
+				<a href="#">Connexion</a>
 			</li>
 		</ul>
 	</body>
