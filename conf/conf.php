@@ -20,5 +20,5 @@
 	} catch (PDOException $e) {
 		echo 'Connexion échouée : ' . $e->getMessage();
 	}
-
+	
 ?>
