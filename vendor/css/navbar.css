@@ -5,7 +5,15 @@ ul.topnav {
     margin: 0;
     padding: 4px;
     overflow: hidden;
-    background-color: #3e4aa8;
+    position: fixed;
+    float: top;
+    background-color: var(--color-back);
+    width: 100%;
+    z-index: 1;
+}
+
+.topnav-clean-bottom {
+    padding-top: 70px;
 }
 
 ul.topnav li {
@@ -23,27 +31,27 @@ ul.topnav li.navtext {
 }
 
 ul.topnav li.navtitle {
-    border: 1px solid #c6ccff;
+    border: 1px solid var(--color-text);;
     float: left;
     font-size: 20px;
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
-    color: #c6ccff;
 }
 
 ul.topnav li.navtext a {
-    color: #c6ccff;
+    color: var(--color-text);;
 }
 
 ul.topnav li a.topnav-btn{
     display: inline-block;
-    color: #c6ccff;
+    color: var(--color-text);;
     text-align: center;
     padding-right: 25px;
     padding-left: 25px;
     padding-top: 15px;
+    padding-bottom: 15px;
     text-decoration: none;
 }
 
@@ -60,8 +68,112 @@ ul.topnav li.right {
     float: right;
 }
 
-@media screen and (max-width: 600px){
-    ul.topnav li.right, ul.topnav li {
-        float: none;
+.dropdown-content {
+    display: none;
+    border-radius:  5px;
+    position: absolute;
+    background-color: #f2f4ff;
+    overflow: hidden;
+    min-width: 115px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.dropdown-content a {
+    color: #5d6acf;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #fbfbff}
+
+.dropdown {
+    padding-bottom: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Si c'est petit */
+@media screen and (max-width: 1000px){
+    ul.topnav li {
+        display: block;
+        width: 100%;
+    }
+
+    .topnav-clean-bottom {
+        padding-top: 5px;
+    }
+
+    ul.topnav {
+        position: initial;
+    }
+}
+
+/* NAVBAR ROUNDED */
+
+ul.roundnav {
+    list-style-type: none;
+    background-color: black;
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+ul.roundnav li {
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+ul.roundnav li p{
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-decoration: none;
+}
+
+.roundcontainer {
+    border: 1px solid white;
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+ul.roundnav li.active .roundcontainer {
+    border: 2px solid white;
+}
+
+ul.roundnav li.active .roundcontainer img{
+    filter: opacity(1);
+}
+
+ul.roundnav li.active p {
+    font-weight: bold;
+}
+
+.roundcontainer img{
+    width: 75px;
+    filter: opacity(70%);
+}
+
+ul.roundnav li:hover img{
+    filter: opacity(1);
+}
+
+
+
+/* Si c'est petit */
+@media screen and (max-width: 1000px){
+    ul.roundnav {
+        display: flex;
+        flex-wrap: wrap;
     }
 }
