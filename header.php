@@ -7,10 +7,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- IMPORT CSS STYLESHEET -->
 		<link rel="stylesheet" type="text/css" href="vendor/css/navbar.css">
 		<link rel="stylesheet" type="text/css" href="vendor/css/default.css">
 		<link rel="stylesheet" type="text/css" href="vendor/css/card.css">
 
+		<!-- IMPORT JS SCRIPT -->
+		<script type="text/javascript" src="vendor/js/jquery-3.2.1.min.js"></script>
+
+		<!-- CHAR ENCODING -->
 		<meta charset="UTF-8">
 	</head>
 	<body>

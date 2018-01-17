@@ -1,2 +1,2 @@
-# Autoload heder.php file
-php_value auto_prepend_file "header.php"
+# Autoload header.php file
+# php_value auto_prepend_file "header.php"
