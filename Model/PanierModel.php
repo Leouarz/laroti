@@ -1,38 +1,20 @@
 <?php
 
-	require ("../conf/conf.php");
-
 	/**
-	*    Gestion du panier de l'utilisateur
+	*    Manage Panier datas
 	*/
-	class PanierModel
+	class PanierModel extends Model
 	{
-
-		private $PDO 				= null;
-		private $COOKIE_DURATION 	= 1600;
 		
-		function __construct()
-		{
-			// SET a PDO connection
-			$dsn = DB_DSN ;
-			$user = DB_USER;
-			$password = DB_PASS;
-
-			try {
-				$this->PDO = new PDO($dsn, $user, $password);
-			} catch (PDOException $e) {
-				echo 'Connexion échouée : ' . $e->getMessage();
-			}
-		}
-
 		/**
-		* 	Ajoute un produit au panier
+		* 	Add a product to cart
 		*/
 		public function ajout_panier($id) 
 		{
+			
 			// IF not isset panier COOKIE
 			if (!isset($_COOKIE["panier"])) {
-				setcookie("panier", "[]", time() + 1600);
+				setcookie("panier", "[]", time() + $this->COOKIE_DURATION, "/");
 			}
 			
 			// GET panier and complete it
@@ -46,9 +28,9 @@
 			}
 			
 			// Modification du panier
-			setcookie("panier", json_encode($panier), time() + 1600);
+			setcookie("panier", json_encode($panier), time() + $this->COOKIE_DURATION, "/");
 
-			return "Ajout OK, état du panier : " . json_encode($panier);
+			return $_COOKIE["panier"];
 		}
 
 		/**
@@ -58,7 +40,12 @@
 		{
 
 			// GET panier
-			$panier = (array) json_decode($_COOKIE["panier"]);
+			if (isset($_COOKIE["panier"])) {
+				$panier = (array) json_decode($_COOKIE["panier"]);
+			} else {
+				$panier = [];
+			}
+			
 			$array_panier = [];
 
 			// Get product data
@@ -76,11 +63,48 @@
 				// SET data to return
 			 	$array_panier[$id]["quantite"] = $data->quantite;
 			 	$array_panier[$id]["libelle"] = $produit_data[0]["libelle"];
-			 	$array_panier[$id]["img_path"] = $produit_data[0]["CP_LIB"]."/".$produit_data[0]["image"];
+			 	$array_panier[$id]["cp_libelle"] = $produit_data[0]["CP_LIB"];
+			 	$array_panier[$id]["prix"] = $produit_data[0]["prix"];
+			 	$array_panier[$id]["id"] = $produit_data[0]["id"];
 			}
 
 			// return datas
 			return json_encode($array_panier);
+		}
+
+		/**
+		* 	Drop a product from cart
+		*/
+		public function drop_panier($id) 
+		{
+			
+			// IF not isset panier COOKIE
+			if (!isset($_COOKIE["panier"])) {
+				setcookie("panier", "[]", time() + $this->COOKIE_DURATION, "/");
+			}
+			
+			// GET panier and complete it
+			$panier = (array) json_decode($_COOKIE["panier"]);
+
+			if (array_key_exists("ID#".$id, $panier)) {
+				unset($panier["ID#".$id]);
+			}
+			
+			// Modification du panier
+			setcookie("panier", json_encode($panier), time() + $this->COOKIE_DURATION, "/");
+
+			return $_COOKIE["panier"];
+		}
+
+		/**
+		* 	Drop all products from cart
+		*/
+		public function drop_all_panier() 
+		{
+			
+			setcookie("panier", "[]", time() + $this->COOKIE_DURATION, "/");
+
+			return $_COOKIE["panier"];
 		}
 	}
 

@@ -1,0 +1,22 @@
+table {
+	width: 				100%;
+	border: 			1px solid grey;
+}
+
+table thead {
+	background-color: 	var(--color-back);
+	color:				white;
+}
+
+table thead th {
+	padding: 			5px;
+}
+
+table tr:nth-child(even){
+	background-color: 	var(--color-text)
+}
+
+table td {
+	padding: 			5px;
+	text-align: 		center;
+}

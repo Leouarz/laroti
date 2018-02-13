@@ -1,10 +1,11 @@
-/* CSS TOP NAV */
+/* 
+*   CSS TOP NAV 
+*/
 
 ul.topnav {
     list-style-type: none;
     margin: 0;
     padding: 4px;
-    overflow: hidden;
     position: fixed;
     float: top;
     background-color: var(--color-back);
@@ -21,6 +22,21 @@ ul.topnav li {
     margin: 0;
     padding: 0;
     height: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    width: 350px;
+    right: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+ul.topnav li.dropdown:hover div.dropdown-content{
+    display: block;
 }
 
 ul.topnav li.navtext {
@@ -71,7 +87,7 @@ ul.topnav li.right {
 /* Si c'est petit */
 @media screen and (max-width: 1000px){
     ul.topnav li {
-        display: block;
+        flex: auto;
         width: 100%;
     }
 
@@ -80,11 +96,16 @@ ul.topnav li.right {
     }
 
     ul.topnav {
-        position: initial;
+        display: flex;
+        position: unset;
     }
 }
 
-/* NAVBAR ROUNDED */
+
+
+/* 
+*   NAVBAR ROUNDED 
+*/
 
 ul.roundnav {
     list-style-type: none;
@@ -145,5 +166,59 @@ ul.roundnav li:hover img{
     ul.roundnav {
         display: flex;
         flex-wrap: wrap;
+    }
+}
+
+
+
+/*
+*   SIDE NAV
+*/
+
+/* Style the side navigation */
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding: 5px;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    text-decoration: none;
+    display: block;
+}
+
+.sidenav .rounded {
+    border: 1px solid white;
+    border-radius: 1000px;
+    text-align: center;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style the content */
+.sidenav-content {
+    margin-left: 200px;
+    padding-left: 20px;
+}
+
+/* Si c'est petit */
+@media screen and (max-width: 1000px){
+    .sidenav {
+        display: none;
     }
 }

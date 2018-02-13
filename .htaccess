@@ -1,2 +1,2 @@
-# Autoload header.php file
-# php_value auto_prepend_file "header.php"
+RewriteEngine on
+RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?page=$1

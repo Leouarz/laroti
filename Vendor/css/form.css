@@ -1,0 +1,59 @@
+form .styled-form{
+	width: 100%;
+}
+
+.form-login, .form-register {
+    padding-top: 50px;
+    padding-right: 30%;
+    padding-left: 30%;
+}
+
+.form-item {
+	padding-bottom: 10px;
+    width: 100%;
+}
+
+.form-half-item {
+    width: 48%;
+    display: inline-block;
+    float: left;
+    margin-right: 4%;
+}
+
+.form-half-item:last-child {
+    width: 48%;
+    margin-right: 0%;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.form-login a, .form-register a {
+	color: var(--color-back);
+}
+
+input.red {
+    border : 1px solid red;
+}

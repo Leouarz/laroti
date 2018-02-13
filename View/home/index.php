@@ -1,0 +1,1 @@
+<h2>Accueil du site</h2>
